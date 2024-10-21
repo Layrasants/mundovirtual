@@ -1,11 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, Button, Alert, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default function App() {
+  const handleTecnicoPress = () => {
+    // Aqui você pode usar a navegação, se estiver configurado
+    // Exemplo com React Navigation: navigation.navigate('Entrar');
+    console.log('Navegar para entrar.html'); // Para simulação
+  };
+
+  const handleClientePress = () => {
+    Alert.alert('Você escolheu Cliente!');
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image source={require('./assets/design.png')} style={styles.backgroundImage} />
+      <View style={styles.overlay}>
+        <Text style={styles.title}>MUNDO VIRTUAL</Text>
+        <Text style={styles.subtitle}>Assistência Técnica</Text>
+        <View style={styles.buttons}>
+          <TouchableOpacity style={styles.button} onPress={handleTecnicoPress}>
+            <Text style={styles.buttonText}>Técnico</Text>
+          </TouchableOpacity>
+          <Text style={styles.orText}>Ou</Text>
+          <TouchableOpacity style={styles.button} onPress={handleClientePress}>
+            <Text style={styles.buttonText}>Cliente</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 }
@@ -13,8 +35,57 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1a1a2e',
+  },
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    height: '100%',
+    opacity: 0.5, // para deixar a imagem em segundo plano
+  },
+  overlay: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1, // para garantir que o texto fique acima da imagem
+    padding: 20,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 10,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#fff',
+    marginBottom: 40,
+  },
+  buttons: {
+    marginTop: 150,
+    alignItems: 'center',
+  },
+  button: {
+    width: '80%',
+    padding: 15,
+    backgroundColor: '#28a745',
+    borderRadius: 10,
+    marginVertical: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#fff',
+  },
+  orText: {
+    marginVertical: 15,
+    color: '#fff',
+    fontSize: 16,
   },
 });
