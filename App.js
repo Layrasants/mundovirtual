@@ -5,7 +5,7 @@ export default function App() {
   const handleTecnicoPress = () => {
     // Aqui você pode usar a navegação, se estiver configurado
     // Exemplo com React Navigation: navigation.navigate('Entrar');
-    console.log('Navegar para entrar.html'); // Para simulação
+    console.log('oioi')
   };
 
   const handleClientePress = () => {
@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: '100%',
     height: '100%',
-    opacity: 0.5, // para deixar a imagem em segundo plano
+    opacity: 0.5,
   },
   overlay: {
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 1, // para garantir que o texto fique acima da imagem
+    zIndex: 1,
     padding: 20,
   },
   title: {
@@ -89,3 +89,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
